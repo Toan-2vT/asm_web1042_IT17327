@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vũ Văn Toàn - PS25204</title>
+    <script src="ptb2.js"></script>
+    <style>
+        body {
+            background-color: lightblue;
+        }
+
+        .khung {
+            border-radius: 10px;
+            box-shadow: 10px;
+            width: 500px;
+            margin: 10px auto;
+            border: 2px solid white;
+            height: 700px;
+            text-align: center;
+            background-color: rgb(223, 49, 43);
+            color: white;
+        }
+
+        #khung p {
+            width: 500px;
+            font-size: 25px;
+        }
+
+        p {
+            font-size: 25px;
+        }
+
+        h1 {
+            margin-top: 0;
+            height: 50px;
+            padding: 5px;
+        }
+
+        form input[id] {
+            width: 200px;
+            text-align: center;
+            padding: 10px 0;
+            border: solid 1px black;
+            background-color: blanchedalmond;
+            border: 2px solid black;
+            border-radius: 10px
+        }
+
+        form button {
+            width: 129px;
+            height: 40px;
+        }
+
+        .nut {
+            background: lightseagreen;
+            color: white;
+            border-radius: 10px;
+        }
+
+        .nut_khoa {
+            background: darksalmon;
+            color: white;
+            border-radius: 10px;
+        }
+
+        #solangiai {
+            color: yellow;
+            font-size: 25px;
+            font-weight: bold;
+        }
+
+        #kq {
+            border-radius: 15px;
+            height: 200px;
+            margin: 30px 50px 0 50px;
+            border: 2px double white;
+        }
+
+        #kq p {
+            font-size: 20px;
+            margin-top: 0px;
+        }
+
+        .time {
+            color: yellow;
+            font-style: italic;
+            margin-top: 30px;
+            font-size: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="khung">
+        <h2>GIẢI PHƯƠNG TRÌNH: <b id="pt2">ax<sup>2</sup> + bx +x = 0</b></h1>
+            <p>
+                <center>Số lần giải <span id="solangiai">0</span></center>
+            </p>
+            <hr>
+            <form name="ptb2form">
+                <p>Nhập số a : <input type="text" name="a" id="a" placeholder="Nhập a"></p>
+                <p>Nhập số b : <input type="text" name="b" id="b" placeholder="Nhập b"></p>
+                <p>Nhập số c : <input type="text" name="c" id="c" placeholder="Nhập c"></p>
+                <button type="button" class="nut_khoa" disabled id="btngiai" onclick="ptb2(); dem();"> GIẢI PT </button>
+                <button type="button" class="nut" id="btnchoso" onclick="choso()"> CHO SỐ </button>
+            </form>
+            <div id="kq">
+                <p id="ptb2"></p>
+            </div>
+            <div class="time">
+                <b><i id="hvn"></i></b>
+            </div>
+    </div>
+
+</body>
+
+</html>
+<script>
+    var solangiai = 0;
+    function dem() {
+        solangiai++;
+        document.getElementById("solangiai").innerHTML = solangiai;
+    }
+</script>

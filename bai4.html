@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vũ Văn Toàn - PS25204</title>
+    <style>
+        body {
+            background-color: lightblue;
+        }
+
+        #form1 {
+            width: 400px;
+            margin: 30px auto;
+            padding: 10px 40px;
+            background: whitesmoke;
+            border: 1px solid black;
+        }
+
+        #form1 .txt {
+            width: 400px;
+            padding: 6px;
+            border: solid 1px lightslategrey;
+        }
+
+        #form1 fieldset {
+            border: solid 1px lightslategrey;
+            margin-top: 0
+        }
+
+        #form1 #dangki {
+            width: 100px;
+            height: 40px;
+            border: none;
+            background-color: royalblue;
+            color: white;
+            margin-left: 60px;
+        }
+
+        #form1 #baoloi {
+            margin: 0px auto;
+            color: red
+        }
+    </style>
+</head>
+
+<body>
+    <form id="form1">
+        <h1>ĐĂNG KÍ THÀNH VIÊN</h1>
+        <p>
+            <label>Mã sinh viên</label> <br>
+            <input type="text" id="masv" class="txt">
+        </p>
+        <p>
+            <label>Họ và tên</label> <br>
+            <input type="text" id="hoten" class="txt">
+        </p>
+        <p>
+            <label>Email</label> <br>
+            <input type="email" id="email" class="txt">
+        </p>
+        <p>
+        <fieldset id="fs1">
+            <legend>Giới tính</legend>
+            <input type="radio" name="phai" value="Nam"><label>Nam</label>
+            <input type="radio" name="phai" value="Nữ"><label>Nữ</label>
+        </fieldset>
+        </p>
+        <p>
+        <fieldset id="fs1">
+            <legend>Giới tính</legend>
+            <input type="checkbox" name="st"><label>Đọc sách</label>
+            <input type="checkbox" name="st"><label>Du lịch</label>
+            <input type="checkbox" name="st"><label>Ẩm thực</label>
+            <input type="checkbox" name="st"><label>Âm nhạc</label>
+            <input type="checkbox" name="st"><label>Khác</label>
+        </fieldset>
+        </p>
+        <p>
+            <label>Quốc tịch</label><br>
+            <select id="quoctich" name="quoctich" class="txt">
+                <option value="0">Chọn quốc tịch</option>
+                <option value="1">Việt Nam</option>
+                <option value="2">Mỹ</option>
+                <option value="3">Úc</option>
+            </select>
+        </p>
+        <p>
+            <label>Ghi chú</label><br>
+            <textarea id="ghichu" cols="54" rows="5" class="txt"></textarea>
+        </p>
+        <div id="baoloi"></div>
+        <button type="button" id="dangki">Đăng kí</button>
+        <button id="dangki" type="reset">Làm lại</button>
+    </form>
+</body>
+
+</html>

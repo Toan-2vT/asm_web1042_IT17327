@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Shopping Cart</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script>
+        var arr_hinh = [
+            "images/banner1.jpg",
+            "images/banner2.png",
+        ]
+        var index = 0;
+        function next() {
+            index++;
+            if (index >= arr_hinh.length) index = 0;
+            var anh = document.getElementById("hinh");
+            anh.src = arr_hinh[index];
+        }
+        function prev() {
+            index--;
+            if (index < 0) index = arr_hinh.length - 1;
+            var anh = document.getElementById("hinh");
+            anh.src = arr_hinh[index];
+        }
+        setInterval("next()", 3000);
+    </script>
+</head>
+
+<body>
+
+    <div class="boxcenter1">
+        <div class="row">
+            <div class="banner mb">
+                <img id="hinh" src="images/banner1.png">
+            </div>
+        </div>
+        <div class="row mb menu">
+            <ul>
+                <li><a href="bai1.html" target="page">Giải PT</a></li>
+                <li><a href="bai2.html" target="page">Img</a></li>
+                <li><a href="giohang.html" target="page">Giỏ hàng 1</a></li>
+                <li><a href="bai3.html" target="page">Giỏ hàng 2</a></li>
+                <li><a href="bai4.html" target="page">Đăng kí</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="cart">
+        <h1>Thông tin khách hàng</h1>
+        <table>
+            <tr>
+                <td>Họ tên</td>
+                <td><input type="text" name="hoten"></td>
+            </tr>
+            <tr>
+                <td>Địa chỉ</td>
+                <td><input type="text" name="diachi"></td>
+            </tr>
+            <tr>
+                <td>Điện thoại</td>
+                <td><input type="text" name="hoten"></td>
+            </tr>
+            <tr>
+                <td>Email</td>
+                <td><input type="text" name="hoten"></td>
+            </tr>
+        </table>
+        <h1>Giỏ hàng</h1>
+        <div id="showmycart">
+            <table>
+                <tr>
+                    <th>STT</th>
+                    <th>Hình</th>
+                    <th>Tên sản phẩm</th>
+                    <th>Đơn giá</th>
+                    <th>Số lượng</th>
+                    <th>Thành tiền</th>
+                </tr>
+
+                <tbody id="mycart">
+                    <script>
+                        showmycart();
+                    </script>
+                </tbody>
+
+            </table>
+            <button class="nutthanhtoan">Thanh Toán</button>
+        </div>
+    </div>
+    <script src="giohang.js"></script>
+</body>
+
+</html>
