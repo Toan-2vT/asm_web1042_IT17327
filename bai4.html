@@ -19,7 +19,7 @@
             border: 1px solid black;
         }
 
-        #form1 .txt {
+        #form1 #txt {
             width: 400px;
             padding: 6px;
             border: solid 1px lightslategrey;
@@ -44,57 +44,80 @@
             color: red
         }
     </style>
-</head>
 
-<body>
-    <form id="form1">
+</head>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+
+<body ng-app="b3" ng-controller="ctrl1">
+    <form id="form1" name="frm" class="col-5 mx auto border border-primary">
         <h1>ĐĂNG KÍ THÀNH VIÊN</h1>
         <p>
             <label>Mã sinh viên</label> <br>
-            <input type="text" id="masv" class="txt">
+            <input name="masv" id="txt" class="form-control bg-primary" ng-model="masv" required minlength="1"
+                maxlength="7"><br>
+            <em style="color:red; font-style: italic;" ng-if="frm.masv.$invalid" class="text-danger h6">Vui lòng nhập
+                mã sinh viên</em>
         </p>
-        <p>
-            <label>Họ và tên</label> <br>
-            <input type="text" id="hoten" class="txt">
+        <p>Họ tên:<br>
+            <input name="tensv" id="txt" class="form-control bg-primary" ng-model="tensv" required minlength="1"
+                maxlength="30"><br>
+            <em style="color:red; font-style: italic;" ng-if="frm.tensv.$invalid" class="text-danger h6">Vui lòng nhập
+                họ tên</em>
         </p>
         <p>
             <label>Email</label> <br>
-            <input type="email" id="email" class="txt">
+            <input type="email" id="txt" name="email" ng-model="email" required>
+            <span style="color:red;font-style: italic;" ng-show="frm.email.$invalid">
+                <span ng-show="frm.email.$error.required">Vui lòng nhập email</span>
+                <span ng-show="frm.email.$error.email">Email không hợp lệ</span>
+            </span>
         </p>
         <p>
-        <fieldset id="fs1">
+        <fieldset class="border border-seccondary p-3">
             <legend>Giới tính</legend>
-            <input type="radio" name="phai" value="Nam"><label>Nam</label>
-            <input type="radio" name="phai" value="Nữ"><label>Nữ</label>
+            <input style="width: 10px;" name="gioitinh" type="radio" value="1" ng-model="gioitinh">Nam
+            &nbsp;
+            <input style="width: 10px;" name="gioitinh" type="radio" value="2" ng-model="gioitinh">Nữ
+            <em style="color:red;font-style: italic;" ng-if="!gioitinh" class="text-danger h6"><br>Vui lòng chọn</em>
         </fieldset>
         </p>
         <p>
-        <fieldset id="fs1">
-            <legend>Giới tính</legend>
-            <input type="checkbox" name="st"><label>Đọc sách</label>
-            <input type="checkbox" name="st"><label>Du lịch</label>
-            <input type="checkbox" name="st"><label>Ẩm thực</label>
-            <input type="checkbox" name="st"><label>Âm nhạc</label>
-            <input type="checkbox" name="st"><label>Khác</label>
+        <fieldset id="fs2">
+            <legend>Sở thích</legend>
+            <input type="checkbox" ng-model="docsach">Đọc sách
+            <input type="checkbox" ng-model="dulich">Du lịch
+            <input type="checkbox" ng-model="amthuc">Ẩm thực
+            <input type="checkbox" ng-model="amnhac">Âm nhạc
+            <input type="checkbox" ng-model="khac">Khác
+            <em style="color:red;font-style: italic;" ng-if="!docsach && !dulich && !amthuc && !amnhac && !khac"
+                class="text-danger h6"><br>Chọn ít nhất 1 sở thích</em>
+
         </fieldset>
         </p>
         <p>
             <label>Quốc tịch</label><br>
-            <select id="quoctich" name="quoctich" class="txt">
+            <select name="quoctich" id="txt" class="form-control bg-secondary text white" ng-model="quoctich">
                 <option value="0">Chọn quốc tịch</option>
                 <option value="1">Việt Nam</option>
                 <option value="2">Mỹ</option>
                 <option value="3">Úc</option>
             </select>
+            <em style="color:red;font-style: italic;" ng-if="!quoctich || quoctich==0" class="text-danger h6">Vui lòng
+                chọn 1 quốc tịch</em>
         </p>
         <p>
             <label>Ghi chú</label><br>
             <textarea id="ghichu" cols="54" rows="5" class="txt"></textarea>
         </p>
-        <div id="baoloi"></div>
         <button type="button" id="dangki">Đăng kí</button>
         <button id="dangki" type="reset">Làm lại</button>
     </form>
 </body>
+<script>
+    var app = angular.module('b3', []);
+    app.controller('ctrl1', function ($scope) {
+
+    });
+</script>
 
 </html>
